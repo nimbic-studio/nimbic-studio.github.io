@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nimbic</title>
+<meta name="description" content="Nimbic makes small, useful mobile apps. Our first is LEvents: everything happening in Leskovac, in one place.">
+<link rel="icon" type="image/png" href="img/levents-icon.png">
+<style>
+  :root {
+    --bg: #F7F7F5;
+    --surface: #FFFFFF;
+    --text: #1F1F1F;
+    --muted: #5E5E5B;
+    --line: #E4E4E0;
+    --accent: #D7FF4D;
+    --accent-ink: #1F1F1F;
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161616;
+      --surface: #1F1F1F;
+      --text: #F7F7F5;
+      --muted: #A3A39E;
+      --line: #2E2E2E;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", -apple-system, Roboto, "Open Sans", Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+  a { color: inherit; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  header { padding: 28px 0; }
+  .brand { font-weight: 700; font-size: 1.25rem; letter-spacing: -.01em; text-decoration: none; }
+  .brand .dot { display: inline-block; width: .42em; height: .42em; border-radius: 50%; background: var(--accent); margin-left: .12em; box-shadow: 0 0 0 1.5px var(--text); }
+
+  .hero { padding: 56px 0 64px; }
+  .hero h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 16px; font-weight: 700; }
+  .hero p { font-size: 1.15rem; color: var(--muted); max-width: 34em; margin: 0; }
+
+  h2 { font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-weight: 600; margin: 0 0 16px; }
+
+  .app {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 24px;
+  }
+  .app img { width: 96px; height: 96px; border-radius: 22px; display: block; }
+  .app h3 { margin: 0 0 4px; font-size: 1.5rem; letter-spacing: -.01em; }
+  .app .tagline { margin: 0 0 16px; color: var(--muted); }
+  .app ul { margin: 0 0 20px; padding: 0; list-style: none; display: grid; gap: 8px; }
+  .app li { padding-left: 22px; position: relative; }
+  .app li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 1.5px var(--text); }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+  .pill {
+    display: inline-block; padding: 10px 20px; border-radius: 999px;
+    background: var(--accent); color: var(--accent-ink);
+    font-weight: 600; text-decoration: none; font-size: .95rem;
+  }
+  .pill.soon { background: transparent; color: var(--muted); border: 1.5px dashed var(--line); }
+
+  section { padding: 0 0 56px; }
+  .contact p { margin: 0; max-width: 34em; }
+
+  footer { border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--muted); font-size: .9rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+
+  @media (max-width: 560px) {
+    .app { grid-template-columns: 1fr; padding: 22px; gap: 16px; }
+    .app img { width: 72px; height: 72px; border-radius: 16px; }
+    .hero { padding: 32px 0 44px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="./">Nimbic<span class="dot" aria-hidden="true"></span></a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="hero">
+      <h1>Small apps for everyday life.</h1>
+      <p>Nimbic is an independent studio from Serbia making simple, focused mobile apps. No accounts, no clutter - just the thing you opened the app for.</p>
+    </div>
+
+    <section aria-labelledby="apps">
+      <h2 id="apps">Our apps</h2>
+      <article class="app">
+        <img src="img/levents-icon.png" alt="LEvents app icon">
+        <div>
+          <h3>LEvents</h3>
+          <p class="tagline">Everything happening in Leskovac, in one place.</p>
+          <ul>
+            <li>Concerts, exhibitions, plays, sports, workshops, films and fairs</li>
+            <li>Browse by day, filter by category, or search</li>
+            <li>Save the events you don't want to miss - kept on your phone, no sign-up</li>
+            <li>In Serbian and English, with light and dark themes</li>
+          </ul>
+          <div class="actions">
+            <span class="pill soon">Coming soon to Google Play</span>
+            <a href="https://markovic-m.github.io/nimbic-legal/">Privacy policy</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="contact" aria-labelledby="contact">
+      <h2 id="contact">Contact</h2>
+      <p>Questions, feedback, or an event you'd like to see listed? Write to <a href="mailto:nimbic.studio@proton.me">nimbic.studio@proton.me</a>.</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Nimbic</span>
+    <a href="https://markovic-m.github.io/nimbic-legal/">LEvents privacy policy</a>
+  </div>
+</footer>
+
+</body>
+</html>
