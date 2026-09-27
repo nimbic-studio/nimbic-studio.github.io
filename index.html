@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nimbic</title>
-<meta name="description" content="Nimbic makes small, useful mobile apps. Our first is LEvents: everything happening in Leskovac, in one place.">
+<meta name="description" content="Nimbic makes small, focused mobile apps: LEvents, everything happening in Leskovac in one place, and Slovca, a daily word puzzle in Serbian.">
 <link rel="icon" type="image/png" href="img/levents-icon.png">
 <style>
   :root {
@@ -60,6 +60,7 @@
     grid-template-columns: 96px 1fr;
     gap: 24px;
   }
+  .app + .app { margin-top: 20px; }
   .app img { width: 96px; height: 96px; border-radius: 22px; display: block; }
   .app h3 { margin: 0 0 4px; font-size: 1.5rem; letter-spacing: -.01em; }
   .app .tagline { margin: 0 0 16px; color: var(--muted); }
@@ -121,11 +122,28 @@
           </div>
         </div>
       </article>
+      <article class="app">
+        <img src="img/slovca-icon.png" alt="Slovca app icon">
+        <div>
+          <h3>Slovca</h3>
+          <p class="tagline">A daily word puzzle in Serbian.</p>
+          <ul>
+            <li>Guess the hidden word in six tries - the same daily word for everyone</li>
+            <li>Keep your streak going, and catch up on missed days from the calendar</li>
+            <li>Endless play, 4- and 6-letter words, two words at once, and a 3-minute blitz</li>
+            <li>Cyrillic or Latin, colour-blind mode, light and dark themes - no sign-up</li>
+          </ul>
+          <div class="actions">
+            <span class="pill soon">Coming soon to Google Play</span>
+            <a href="slovca/privacy/">Privacy policy</a>
+          </div>
+        </div>
+      </article>
     </section>
 
     <section class="contact" aria-labelledby="contact">
       <h2 id="contact">Contact</h2>
-      <p>Questions, feedback, or an event you'd like to see listed? Write to <a href="mailto:nimbic.studio@proton.me">nimbic.studio@proton.me</a>.</p>
+      <p>Questions, feedback, an event you'd like to see listed, or a word Slovca should know? Write to <a href="mailto:nimbic.studio@proton.me">nimbic.studio@proton.me</a>.</p>
     </section>
   </div>
 </main>
@@ -133,7 +151,7 @@
 <footer>
   <div class="wrap">
     <span>&copy; 2026 Nimbic</span>
-    <a href="levents/privacy/">LEvents privacy policy</a>
+    <span><a href="levents/privacy/">LEvents privacy policy</a> &middot; <a href="slovca/privacy/">Slovca privacy policy</a></span>
   </div>
 </footer>
 
