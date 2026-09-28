@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nimbic</title>
-<meta name="description" content="Nimbic makes small, focused mobile apps: LEvents, everything happening in Leskovac in one place, Slovca, a daily word puzzle in Serbian, and Isplata, Serbian salary and tax calculators.">
+<meta name="description" content="Nimbic makes small, focused mobile apps and games: LEvents, everything happening in Leskovac in one place, Isplata, Serbian salary and tax calculators, and Slovca, a daily word puzzle in Serbian.">
 <link rel="icon" type="image/png" href="img/levents-icon.png">
 <style>
   :root {
@@ -36,6 +36,7 @@
     font-family: "Segoe UI", -apple-system, Roboto, "Open Sans", Arial, sans-serif;
     line-height: 1.6;
   }
+  [hidden] { display: none !important; }
   .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
   a { color: inherit; text-underline-offset: 3px; }
   a:hover { text-decoration-thickness: 2px; }
@@ -44,15 +45,33 @@
   .brand { font-weight: 700; font-size: 1.25rem; letter-spacing: -.01em; text-decoration: none; }
   .brand .dot { display: inline-block; width: .42em; height: .42em; border-radius: 50%; background: var(--accent); margin-left: .12em; box-shadow: 0 0 0 1.5px var(--text); }
 
-  .hero { padding: 56px 0 64px; }
+  .hero { padding: 56px 0 48px; }
   .hero h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 16px; font-weight: 700; }
   .hero p { font-size: 1.15rem; color: var(--muted); max-width: 34em; margin: 0; }
 
   h2 { font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-weight: 600; margin: 0 0 16px; }
 
+  /* Apps / Games switcher. Without JS the tabs stay hidden and both sections show. */
+  .tabs { display: inline-flex; gap: 4px; padding: 4px; margin: 0 0 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; }
+  .tabs a {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 20px; border-radius: 999px; text-decoration: none;
+    font-weight: 600; font-size: .95rem; color: var(--muted);
+  }
+  .tabs a:hover { color: var(--text); }
+  .tabs a[aria-selected="true"] { background: var(--text); color: var(--bg); }
+  .tabs a:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+  .tabs .count { font-size: .75rem; opacity: .65; }
+  .js .panel > h2 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .panel-intro { margin: 0 0 20px; color: var(--muted); max-width: 38em; }
+
+  /* Each card wears its own product's palette (from each project's brand docs). */
   .app {
-    background: var(--surface);
-    border: 1px solid var(--line);
+    --c-bg: var(--surface); --c-line: var(--line); --c-text: var(--text); --c-muted: var(--muted);
+    --c-brand: var(--text); --c-dot: var(--accent); --c-dot-ring: var(--text);
+    background: var(--c-bg);
+    color: var(--c-text);
+    border: 1px solid var(--c-line);
     border-radius: 24px;
     box-shadow: var(--shadow);
     padding: 28px;
@@ -63,17 +82,30 @@
   .app + .app { margin-top: 20px; }
   .app img { width: 96px; height: 96px; border-radius: 22px; display: block; }
   .app h3 { margin: 0 0 4px; font-size: 1.5rem; letter-spacing: -.01em; }
-  .app .tagline { margin: 0 0 16px; color: var(--muted); }
+  .app .tagline { margin: 0 0 16px; color: var(--c-muted); }
   .app ul { margin: 0 0 20px; padding: 0; list-style: none; display: grid; gap: 8px; }
   .app li { padding-left: 22px; position: relative; }
-  .app li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 1.5px var(--text); }
+  .app li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: var(--c-dot); box-shadow: 0 0 0 1.5px var(--c-dot-ring); }
   .actions { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
   .pill {
     display: inline-block; padding: 10px 20px; border-radius: 999px;
     background: var(--accent); color: var(--accent-ink);
     font-weight: 600; text-decoration: none; font-size: .95rem;
   }
-  .pill.soon { background: transparent; color: var(--muted); border: 1.5px dashed var(--line); }
+  .pill.soon { background: transparent; color: var(--c-brand); border: 1.5px dashed currentColor; }
+
+  /* LEvents: charcoal, off-white, lime pin (lime gets a charcoal outline on light) */
+  .app.levents { --c-bg: #FFFFFF; --c-line: #E4E4E0; --c-text: #1F1F1F; --c-muted: #5E5E5B; --c-brand: #1F1F1F; --c-dot: #D7FF4D; --c-dot-ring: #1F1F1F; }
+  /* Isplata: "Signal" */
+  .app.isplata { --c-bg: #FFFFFF; --c-line: #DCE1EE; --c-text: #0E1530; --c-muted: #56607A; --c-brand: #2346D5; --c-dot: #F0643C; --c-dot-ring: transparent; }
+  /* Slovca: Paprika (light theme) */
+  .app.slovca { --c-bg: #FFF3E2; --c-line: #E9D9C6; --c-text: #2A1E17; --c-muted: #6F5F53; --c-brand: #C8412B; --c-dot: #F0B43C; --c-dot-ring: transparent; }
+  @media (prefers-color-scheme: dark) {
+    .app.levents { --c-bg: #1F1F1F; --c-line: #343434; --c-text: #F7F7F5; --c-muted: #A3A39E; --c-brand: #D7FF4D; --c-dot-ring: transparent; }
+    .app.isplata { --c-bg: #131A2E; --c-line: #242C46; --c-text: #EEF1FA; --c-muted: #9AA3BD; --c-brand: #7F9BFF; --c-dot: #FF8A66; }
+    /* Slovca: Dunav (dark theme) */
+    .app.slovca { --c-bg: #133647; --c-line: #1F4557; --c-text: #F4F1EA; --c-muted: #9FB6C2; --c-brand: #FFB547; --c-dot: #138F86; }
+  }
 
   section { padding: 0 0 56px; }
   .contact p { margin: 0; max-width: 34em; }
@@ -84,7 +116,9 @@
   @media (max-width: 560px) {
     .app { grid-template-columns: 1fr; padding: 22px; gap: 16px; }
     .app img { width: 72px; height: 72px; border-radius: 16px; }
-    .hero { padding: 32px 0 44px; }
+    .hero { padding: 32px 0 36px; }
+    .tabs { display: flex; }
+    .tabs a { flex: 1; justify-content: center; }
   }
 </style>
 </head>
@@ -99,13 +133,19 @@
 <main>
   <div class="wrap">
     <div class="hero">
-      <h1>Small apps for everyday life.</h1>
-      <p>Nimbic is an independent studio from Serbia making simple, focused mobile apps. No accounts, no clutter - just the thing you opened the app for.</p>
+      <h1>Small apps and games for everyday life.</h1>
+      <p>Nimbic is an independent studio from Serbia making simple, focused mobile apps and games. No accounts, no clutter - just the thing you opened the app for.</p>
     </div>
 
-    <section aria-labelledby="apps">
-      <h2 id="apps">Our apps</h2>
-      <article class="app">
+    <nav class="tabs" role="tablist" aria-label="Browse" hidden>
+      <a href="#apps" role="tab" id="tab-apps" aria-controls="apps" aria-selected="true">Apps <span class="count">2</span></a>
+      <a href="#games" role="tab" id="tab-games" aria-controls="games" aria-selected="false">Games <span class="count">1</span></a>
+    </nav>
+
+    <section class="panel" id="apps" role="tabpanel" aria-labelledby="tab-apps">
+      <h2>Apps</h2>
+      <p class="panel-intro">Handy tools for everyday life in Serbia.</p>
+      <article class="app levents">
         <img src="img/levents-icon.png" alt="LEvents app icon">
         <div>
           <h3>LEvents</h3>
@@ -122,24 +162,7 @@
           </div>
         </div>
       </article>
-      <article class="app">
-        <img src="img/slovca-icon.png" alt="Slovca app icon">
-        <div>
-          <h3>Slovca</h3>
-          <p class="tagline">A daily word puzzle in Serbian.</p>
-          <ul>
-            <li>Guess the hidden word in six tries - the same daily word for everyone</li>
-            <li>Keep your streak going, and catch up on missed days from the calendar</li>
-            <li>Endless play, 4- and 6-letter words, two words at once, and a 3-minute blitz</li>
-            <li>Cyrillic or Latin, colour-blind mode, light and dark themes - no sign-up</li>
-          </ul>
-          <div class="actions">
-            <span class="pill soon">Coming soon to Google Play</span>
-            <a href="slovca/privacy/">Privacy policy</a>
-          </div>
-        </div>
-      </article>
-      <article class="app">
+      <article class="app isplata">
         <img src="img/isplata-icon.png" alt="Isplata app icon">
         <div>
           <h3>Isplata</h3>
@@ -158,6 +181,28 @@
       </article>
     </section>
 
+    <section class="panel" id="games" role="tabpanel" aria-labelledby="tab-games">
+      <h2>Games</h2>
+      <p class="panel-intro">Quick games to play every day.</p>
+      <article class="app slovca">
+        <img src="img/slovca-icon.png" alt="Slovca app icon">
+        <div>
+          <h3>Slovca</h3>
+          <p class="tagline">A daily word puzzle in Serbian.</p>
+          <ul>
+            <li>Guess the hidden word in six tries - the same daily word for everyone</li>
+            <li>Keep your streak going, and catch up on missed days from the calendar</li>
+            <li>Endless play, 4- and 6-letter words, two words at once, and a 3-minute blitz</li>
+            <li>Cyrillic or Latin, colour-blind mode, light and dark themes - no sign-up</li>
+          </ul>
+          <div class="actions">
+            <span class="pill soon">Coming soon to Google Play</span>
+            <a href="slovca/privacy/">Privacy policy</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
     <section class="contact" aria-labelledby="contact">
       <h2 id="contact">Contact</h2>
       <p>Questions, feedback, an event you'd like to see listed, or a word Slovca should know? Write to <a href="mailto:nimbic.studio@proton.me">nimbic.studio@proton.me</a>.</p>
@@ -168,9 +213,48 @@
 <footer>
   <div class="wrap">
     <span>&copy; 2026 Nimbic</span>
-    <span><a href="levents/privacy/">LEvents privacy policy</a> &middot; <a href="slovca/privacy/">Slovca privacy policy</a> &middot; <a href="isplata/privacy/">Isplata privacy policy</a></span>
+    <span><a href="levents/privacy/">LEvents privacy policy</a> &middot; <a href="isplata/privacy/">Isplata privacy policy</a> &middot; <a href="slovca/privacy/">Slovca privacy policy</a></span>
   </div>
 </footer>
+
+<script>
+(function () {
+  var nav = document.querySelector('.tabs');
+  var tabs = [].slice.call(nav.querySelectorAll('[role="tab"]'));
+  document.documentElement.classList.add('js');
+  nav.hidden = false;
+
+  function show(id, focus) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('aria-controls') === id;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      if (on && focus) t.focus();
+    });
+  }
+  function select(id, focus) {
+    history.replaceState(null, '', '#' + id);
+    show(id, focus);
+  }
+  function fromHash() { show(location.hash === '#games' ? 'games' : 'apps'); }
+
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function (e) {
+      e.preventDefault();
+      select(t.getAttribute('aria-controls'));
+    });
+    t.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      select(next.getAttribute('aria-controls'), true);
+    });
+  });
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
 
 </body>
 </html>
