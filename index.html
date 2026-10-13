@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nimbic</title>
-<meta name="description" content="Nimbic makes small, focused mobile apps and games: LEvents, everything happening in Leskovac in one place, Isplata, Serbian salary and tax calculators, and Slovca, a daily word puzzle in Serbian.">
+<meta name="description" content="Nimbic makes small, focused mobile apps and games: LEvents, everything happening in Leskovac in one place, Isplata, Serbian salary and tax calculators, Slovca, a daily word puzzle in Serbian, Gatehold, a roguelike deckbuilder, and Brimfolk, a turn-based adventure with animal heroes.">
 <link rel="icon" type="image/png" href="img/levents-icon.png">
 <style>
   :root {
@@ -100,6 +100,10 @@
   .app.isplata { --c-bg: #FFFFFF; --c-line: #DCE1EE; --c-text: #0E1530; --c-muted: #56607A; --c-brand: #2346D5; --c-dot: #F0643C; --c-dot-ring: transparent; }
   /* Slovca: Paprika (light theme) */
   .app.slovca { --c-bg: #FFF3E2; --c-line: #E9D9C6; --c-text: #2A1E17; --c-muted: #6F5F53; --c-brand: #C8412B; --c-dot: #F0B43C; --c-dot-ring: transparent; }
+  /* Gatehold: night sky, stone, torch gold (dark-only game, same in both themes) */
+  .app.gatehold { --c-bg: #1E222A; --c-line: #343A46; --c-text: #ECE7DC; --c-muted: #A3A9B5; --c-brand: #D9A441; --c-dot: #D9A441; --c-dot-ring: transparent; }
+  /* Brimfolk: navy panels, gold, cream (dark-only game, same in both themes) */
+  .app.brimfolk { --c-bg: #1E2A4A; --c-line: #2E3F68; --c-text: #FFF4DA; --c-muted: #A9B4D0; --c-brand: #FFC94D; --c-dot: #FFC94D; --c-dot-ring: transparent; }
   @media (prefers-color-scheme: dark) {
     .app.levents { --c-bg: #1F1F1F; --c-line: #343434; --c-text: #F7F7F5; --c-muted: #A3A39E; --c-brand: #D7FF4D; --c-dot-ring: transparent; }
     .app.isplata { --c-bg: #131A2E; --c-line: #242C46; --c-text: #EEF1FA; --c-muted: #9AA3BD; --c-brand: #7F9BFF; --c-dot: #FF8A66; }
@@ -139,7 +143,7 @@
 
     <nav class="tabs" role="tablist" aria-label="Browse" hidden>
       <a href="#apps" role="tab" id="tab-apps" aria-controls="apps" aria-selected="true">Apps <span class="count">2</span></a>
-      <a href="#games" role="tab" id="tab-games" aria-controls="games" aria-selected="false">Games <span class="count">1</span></a>
+      <a href="#games" role="tab" id="tab-games" aria-controls="games" aria-selected="false">Games <span class="count">3</span></a>
     </nav>
 
     <section class="panel" id="apps" role="tabpanel" aria-labelledby="tab-apps">
@@ -183,7 +187,7 @@
 
     <section class="panel" id="games" role="tabpanel" aria-labelledby="tab-games">
       <h2>Games</h2>
-      <p class="panel-intro">Quick games to play every day.</p>
+      <p class="panel-intro">From a daily word puzzle to deckbuilding and turn-based battles.</p>
       <article class="app slovca">
         <img src="img/slovca-icon.png" alt="Slovca app icon">
         <div>
@@ -201,6 +205,40 @@
           </div>
         </div>
       </article>
+      <article class="app gatehold">
+        <img src="img/gatehold-icon.png" alt="Gatehold game icon">
+        <div>
+          <h3>Gatehold</h3>
+          <p class="tagline">Hold the wall. A roguelike deckbuilder for phone and PC.</p>
+          <ul>
+            <li>Enemies march down the lanes toward your castle - play cards, set traps and aim the Ballista</li>
+            <li>Pick a champion and two companions, with 30 unique bonds between them</li>
+            <li>5 regions, 110 cards, a branching map every run, and a daily challenge</li>
+            <li>See every hit before you end your turn, and pick up a run exactly where you left it</li>
+          </ul>
+          <div class="actions">
+            <span class="pill soon">Coming soon to Google Play and Steam</span>
+            <a href="gatehold/privacy/">Privacy policy</a>
+          </div>
+        </div>
+      </article>
+      <article class="app brimfolk">
+        <img src="img/brimfolk-icon.png" alt="Brimfolk game icon">
+        <div>
+          <h3>Brimfolk</h3>
+          <p class="tagline">A turn-based adventure with a band of animal heroes.</p>
+          <ul>
+            <li>Lead a hedgehog, a frog, a mushroom and friends against the rat hordes across three regions</li>
+            <li>Tap an enemy to attack or an ally to support, and fill the Surge meter for a big special</li>
+            <li>Swap hats to change class, collect gear and craft new pieces in the Forge</li>
+            <li>Boss dungeons, daily rewards and auto battle - progress saved on your phone, no sign-up</li>
+          </ul>
+          <div class="actions">
+            <span class="pill soon">Coming soon to Google Play</span>
+            <a href="brimfolk/privacy/">Privacy policy</a>
+          </div>
+        </div>
+      </article>
     </section>
 
     <section class="contact" aria-labelledby="contact">
@@ -213,7 +251,7 @@
 <footer>
   <div class="wrap">
     <span>&copy; 2026 Nimbic</span>
-    <span><a href="levents/privacy/">LEvents privacy policy</a> &middot; <a href="isplata/privacy/">Isplata privacy policy</a> &middot; <a href="slovca/privacy/">Slovca privacy policy</a></span>
+    <span><a href="levents/privacy/">LEvents privacy policy</a> &middot; <a href="isplata/privacy/">Isplata privacy policy</a> &middot; <a href="slovca/privacy/">Slovca privacy policy</a> &middot; <a href="gatehold/privacy/">Gatehold privacy policy</a> &middot; <a href="brimfolk/privacy/">Brimfolk privacy policy</a></span>
   </div>
 </footer>
 
