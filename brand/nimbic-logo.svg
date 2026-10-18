@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 484 112" role="img" aria-label="Nimbic">
+  <g transform="scale(.21875)"><rect width="512" height="512" rx="112" fill="#1F1F1F"/><path d="M176 392V280a80 80 0 0 1 160 0v112" fill="none" stroke="#F7F7F5" stroke-width="64" stroke-linecap="round"/><circle cx="336" cy="124" r="40" fill="#4DA8FF"/></g>
+  <g transform="translate(144 0)">
+    <g fill="none" stroke="#1F1F1F" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M10 100V72a18 18 0 0 1 36 0v28M70 54v46M94 100V72a18 18 0 0 1 36 0v28M130 72a18 18 0 0 1 36 0v28M190 14v86M260 54v46M324.6 62.2A23 23 0 1 0 324.6 91.8"/><circle cx="213" cy="77" r="23"/></g>
+    <g fill="#4DA8FF"><circle cx="70" cy="30" r="10.5"/><circle cx="260" cy="30" r="10.5"/></g>
+  </g>
+</svg>

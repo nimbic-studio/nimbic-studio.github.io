@@ -5,7 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nimbic</title>
 <meta name="description" content="Nimbic makes small, focused mobile apps and games: LEvents, everything happening in Leskovac in one place, Isplata, Serbian salary and tax calculators, Slovca, a daily word puzzle in Serbian, Gatehold, a roguelike deckbuilder, and Brimfolk, a turn-based adventure with animal heroes.">
-<link rel="icon" type="image/png" href="img/levents-icon.png">
+<link rel="icon" type="image/svg+xml" href="brand/nimbic-mark.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/nimbic-mark-32.png">
+<link rel="apple-touch-icon" href="brand/nimbic-mark-180.png">
+<meta property="og:title" content="Nimbic">
+<meta property="og:description" content="Small apps and games for everyday life.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nimbic-studio.github.io/">
+<meta property="og:image" content="https://nimbic-studio.github.io/brand/nimbic-social.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <style>
   :root {
     --bg: #F7F7F5;
@@ -13,7 +23,7 @@
     --text: #1F1F1F;
     --muted: #5E5E5B;
     --line: #E4E4E0;
-    --accent: #D7FF4D;
+    --accent: #4DA8FF;
     --accent-ink: #1F1F1F;
     --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
   }
@@ -42,8 +52,8 @@
   a:hover { text-decoration-thickness: 2px; }
 
   header { padding: 28px 0; }
-  .brand { font-weight: 700; font-size: 1.25rem; letter-spacing: -.01em; text-decoration: none; }
-  .brand .dot { display: inline-block; width: .42em; height: .42em; border-radius: 50%; background: var(--accent); margin-left: .12em; box-shadow: 0 0 0 1.5px var(--text); }
+  .brand { display: inline-block; line-height: 0; }
+  .brand img { height: 36px; width: auto; }
 
   .hero { padding: 56px 0 48px; }
   .hero h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 16px; font-weight: 700; }
@@ -130,7 +140,7 @@
 
 <header>
   <div class="wrap">
-    <a class="brand" href="./">Nimbic<span class="dot" aria-hidden="true"></span></a>
+    <a class="brand" href="./"><picture><source srcset="brand/nimbic-logo-dark.svg" media="(prefers-color-scheme: dark)"><img src="brand/nimbic-logo.svg" alt="Nimbic" width="156" height="36"></picture></a>
   </div>
 </header>
 
