@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isplata - Salary and tax calculators for Serbia</title>
+<meta name="description" content="Isplata is a simple salary and tax calculator for Serbia: net and gross salary, flat-rate (paušal) tax, maternity leave, author's fees, the independence test, entrepreneur bookkeeping and dividends, with 2026 rates. Coming soon to Google Play.">
+<link rel="icon" type="image/png" href="../img/isplata-icon.png">
+<link rel="apple-touch-icon" href="../img/isplata-icon.png">
+<meta property="og:title" content="Isplata - Salary and tax calculators for Serbia">
+<meta property="og:description" content="Net/gross, paušal, maternity leave, author's fees, dividends and more, with 2026 rates. Coming soon to Google Play.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nimbic-studio.github.io/isplata/">
+<meta property="og:image" content="https://nimbic-studio.github.io/isplata/img/feature.jpg">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/product.css">
+<style>
+  /* Isplata "Signal" palette (Isplata/docs/BRAND.md), light and dark like the app. */
+  :root {
+    color-scheme: light dark;
+    --bg: #F3F5FB;
+    --surface: #FFFFFF;
+    --raised: #E9EDF6;
+    --line: #DCE1EE;
+    --text: #0E1530;
+    --muted: #56607A;
+    --accent: #2346D5;
+    --accent-ink: #FFFFFF;
+    --heading: #0E1530;
+    --spark: #F0643C;
+    --display: Onest, "Segoe UI", -apple-system, Roboto, Arial, sans-serif;
+    --body: Onest, "Segoe UI", -apple-system, Roboto, Arial, sans-serif;
+    --shadow: 0 1px 2px rgba(14,21,48,.05), 0 12px 32px rgba(14,21,48,.10);
+    /* module tile colours: tint / ink */
+    --m1: #E4E9FC; --m1i: #2346D5;
+    --m2: #FFE8DF; --m2i: #C4441C;
+    --m3: #FCE4EE; --m3i: #B8286A;
+    --m4: #E3F5EC; --m4i: #16804F;
+    --m5: #EFE7FD; --m5i: #6A3FD1;
+    --m6: #FFF2D6; --m6i: #9A6700;
+    --m7: #E0F3F7; --m7i: #0E7490;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0A0E1C;
+      --surface: #131A2E;
+      --raised: #1A2238;
+      --line: #242C46;
+      --text: #EEF1FA;
+      --muted: #9AA3BD;
+      --accent: #7F9BFF;
+      --accent-ink: #0A1235;
+      --heading: #EEF1FA;
+      --spark: #FF8A66;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.4);
+      --m1: #1C2650; --m1i: #9DB2FF;
+      --m2: #3A1F16; --m2i: #FF9C7A;
+      --m3: #3A1729; --m3i: #FF8DC0;
+      --m4: #12331F; --m4i: #6ADFA0;
+      --m5: #2A1D4D; --m5i: #B9A0FF;
+      --m6: #3A2C0C; --m6i: #F5C451;
+      --m7: #0F2F38; --m7i: #6ED3EA;
+    }
+  }
+  h1, h2 { letter-spacing: -.02em; }
+  .app-hero h1 .i { color: var(--spark); }
+  .feature .rule { background: var(--spark); }
+
+  /* The seven calculators, each in its tile colour from the app's hub */
+  .modules { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; margin-top: 24px; }
+  .module { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; display: grid; grid-template-columns: 40px 1fr; gap: 4px 14px; }
+  .module .chip { grid-row: span 2; width: 40px; height: 40px; border-radius: 12px; background: var(--tint); display: grid; place-items: center; color: var(--ink); font-weight: 700; }
+  .module h3 { margin: 0; font-size: 1.05rem; color: var(--text); }
+  .module p { margin: 0; color: var(--muted); font-size: .95rem; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a href="../"><picture><source srcset="../brand/nimbic-logo-dark.svg" media="(prefers-color-scheme: dark)"><img src="../brand/nimbic-logo.svg" alt="Nimbic" width="113" height="26"></picture><span>&larr; All apps and games</span></a>
+  </div>
+</div>
+
+<main>
+  <header class="app-hero">
+    <div class="wrap grid">
+      <div>
+        <img class="icon" src="../img/isplata-icon.png" alt="" width="88" height="88">
+        <h1>Ispl<span class="i">a</span>ta</h1>
+        <p class="tag">Salary and tax calculators for Serbia.</p>
+        <p class="pitch">Enter an amount and instantly see how much goes to you and how much to the state, with every tax and contribution broken down line by line. Up to date with 2026 rates.</p>
+        <div class="stores">
+          <span class="store"><small>Coming soon</small><b>Google Play</b></span>
+        </div>
+      </div>
+      <img class="shot lead" src="img/01-hub.jpg" alt="The home screen: all seven calculators and settings" width="540" height="1080">
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="stats" style="--stats: 3">
+      <div><b>7</b><span>calculators</span></div>
+      <div><b>2026</b><span>tax rates</span></div>
+      <div><b>3</b><span>Latin, Cyrillic, English</span></div>
+    </div>
+
+    <section aria-labelledby="calc">
+      <h2 id="calc">What you can calculate</h2>
+      <div class="modules">
+        <div class="module" style="--tint: var(--m1); --ink: var(--m1i)"><span class="chip">1</span><h3>Net / Gross</h3><p>Convert a salary between net, gross I and gross II (the employer's total cost), with tax and both sets of contributions.</p></div>
+        <div class="module" style="--tint: var(--m2); --ink: var(--m2i)"><span class="chip">2</span><h3>Flat-rate tax (paušal)</h3><p>Monthly and yearly tax and contributions for the 15 activities with the same base across Serbia, by year in business.</p></div>
+        <div class="module" style="--tint: var(--m3); --ink: var(--m3i)"><span class="chip">3</span><h3>Maternity leave</h3><p>Monthly maternity and childcare leave pay, with the legal minimum and maximum base.</p></div>
+        <div class="module" style="--tint: var(--m4); --ink: var(--m4i)"><span class="chip">4</span><h3>Author's fee</h3><p>Tax and contributions on an author's fee, with 50%, 43% or 34% standardized expenses.</p></div>
+        <div class="module" style="--tint: var(--m5); --ink: var(--m5i)"><span class="chip">5</span><h3>Independence test</h3><p>Check, client by client, whether you meet at least 5 of the 9 criteria, with each one explained.</p></div>
+        <div class="module" style="--tint: var(--m6); --ink: var(--m6i)"><span class="chip">6</span><h3>Bookkeeping entrepreneur</h3><p>Compare self-taxation with paying yourself a salary, and see which leaves you more per year.</p></div>
+        <div class="module" style="--tint: var(--m7); --ink: var(--m7i)"><span class="chip">7</span><h3>Dividend</h3><p>Corporate profit tax and dividend tax when an LLC (DOO) owner pays out profit.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="inside">
+      <h2 id="inside">A look inside</h2>
+      <div class="screens" style="--screens: 5">
+        <img class="shot" src="img/02-neto-bruto.jpg" alt="Net/gross salary calculator with the full breakdown" width="540" height="1080" loading="lazy">
+        <img class="shot" src="img/03-pausal.jpg" alt="Flat-rate (paušal) tax: monthly breakdown by activity" width="540" height="1080" loading="lazy">
+        <img class="shot" src="img/04-porodiljsko.jpg" alt="Maternity leave pay" width="540" height="1080" loading="lazy">
+        <img class="shot" src="img/05-samostalnost.jpg" alt="Independence test: 9 criteria, one by one" width="540" height="1080" loading="lazy">
+        <img class="shot" src="img/06-knjige-dark.jpg" alt="Bookkeeping entrepreneur comparison, in the dark theme" width="540" height="1080" loading="lazy">
+      </div>
+    </section>
+
+    <section class="split" aria-labelledby="why">
+      <div>
+        <h2 id="why">Why Isplata</h2>
+        <ul class="list">
+          <li><b>2026 parameters:</b> the non-taxable amount, minimum and maximum contribution base, and every tax and contribution rate.</li>
+          <li><b>The result is always on top</b>, with every line item laid out clearly.</li>
+          <li><b>Nothing leaves your phone.</b> No account, no sign-up, and the amounts you enter are never stored or sent anywhere.</li>
+          <li><b>Serbian in Latin or Cyrillic, or English</b>, in a light or dark theme.</li>
+          <li><b>Free</b>, with banner ads.</li>
+        </ul>
+      </div>
+      <div class="note">
+        <p><b>Good to know.</b> Isplata gives informational calculations and is not legal, tax or financial advice. For specific decisions, consult an accountant or the Tax Administration. It is not an official app of the Serbian Tax Administration or any government body, and is not affiliated with them.</p>
+      </div>
+    </section>
+
+    <div class="cta">
+      <h2>Coming soon</h2>
+      <p class="muted">Isplata is coming to Android on Google Play.</p>
+      <div class="stores">
+        <span class="store"><small>Coming soon</small><b>Google Play</b></span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 <a href="../">Nimbic</a> &middot; <a href="privacy/">Privacy policy</a> &middot; <a href="mailto:nimbic.studio@proton.me">nimbic.studio@proton.me</a></p>
+  </div>
+</footer>
+
+<script src="../assets/viewer.js"></script>
+</body>
+</html>

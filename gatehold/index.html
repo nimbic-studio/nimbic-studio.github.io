@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gatehold - Hold the wall</title>
+<meta name="description" content="Gatehold is a roguelike deckbuilder where enemies march down the lanes toward your castle. Play cards, set traps and build a party whose bonds turn a desperate defence into a perfect one. Coming soon to Android and Steam.">
+<meta name="theme-color" content="#13151A">
+<link rel="icon" type="image/png" href="../img/gatehold-icon.png">
+<link rel="apple-touch-icon" href="../img/gatehold-icon.png">
+<meta property="og:title" content="Gatehold - Hold the wall">
+<meta property="og:description" content="A roguelike deckbuilder where only the wall can fall. Coming soon to Android and Steam.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nimbic-studio.github.io/gatehold/">
+<meta property="og:image" content="https://nimbic-studio.github.io/gatehold/img/pc-battle.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/product.css">
+<style>
+  /* Gatehold's own palette (Game/Assets/Resources/UI/Theme.asset). The game is dark-only, so the page is too. */
+  :root {
+    color-scheme: dark;
+    --bg: #13151A;
+    --surface: #1E222A;
+    --raised: #262B35;
+    --line: #343A46;
+    --text: #ECE7DC;
+    --muted: #A3A9B5;
+    --accent: #D9A441;
+    --accent-ink: #1A1408;
+    --heading: #D9A441;
+    --crest: #7B2D26;
+    --display: Cinzel, Georgia, serif;
+    --body: "Source Sans 3", "Segoe UI", -apple-system, Roboto, Arial, sans-serif;
+    --shadow: 0 12px 40px rgba(0,0,0,.45);
+  }
+  h1, h2, h3 { letter-spacing: .01em; }
+
+  /* Hero: the Steam library banner (cards on the right), crest + pitch on the left */
+  .hero {
+    position: relative;
+    background: #161922 url("img/hero.jpg") right -300px center / auto 100% no-repeat;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(19,21,26,.95) 0%, rgba(19,21,26,.8) 40%, rgba(19,21,26,0) 62%);
+  }
+  .hero .wrap { position: relative; padding-top: 96px; padding-bottom: 72px; }
+  .hero .logo { width: min(420px, 80%); margin: 0 0 24px; filter: drop-shadow(0 6px 18px rgba(0,0,0,.45)); }
+  .hero .tag { font-family: var(--display); font-size: clamp(1.3rem, 3.4vw, 1.75rem); margin: 0 0 10px; }
+  .hero .pitch { max-width: 33em; color: var(--muted); margin: 0 0 28px; }
+  .phone-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
+
+  /* The regions as the road a campaign takes: plain text stops on a dashed line, not pills. */
+  .route { margin: 22px 0 0; padding: 0; list-style: none; }
+  .route li { position: relative; padding: 0 0 12px 34px; line-height: 1.35; }
+  .route li::before { content: ""; position: absolute; left: 6px; top: .38em; width: 9px; height: 9px; transform: rotate(45deg); background: var(--accent); }
+  .route li::after { content: ""; position: absolute; left: 10px; top: 1.1em; bottom: -.15em; border-left: 1.5px dashed var(--line); }
+  .route li:last-child { padding-bottom: 0; color: var(--accent); font-family: var(--display); font-weight: 700; }
+  .route li:last-child::before { left: 3px; top: .2em; width: 15px; height: 15px; background: var(--crest); box-shadow: 0 0 0 2px var(--accent); }
+  .route li:last-child::after { display: none; }
+
+  @media (max-width: 560px) {
+    .hero { background-position: 88% 30%; }
+    .hero::before { background: linear-gradient(180deg, rgba(19,21,26,.7) 0%, rgba(19,21,26,.92) 55%); }
+    .hero .wrap { padding-top: 84px; padding-bottom: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar over">
+  <div class="wrap">
+    <a href="../"><img src="../brand/nimbic-logo-dark.svg" alt="Nimbic" width="113" height="26"><span>&larr; All apps and games</span></a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="img/logo.png" alt="" width="939" height="407">
+    <h1 class="sr-only">Gatehold</h1>
+    <p class="tag">Hold the wall.</p>
+    <p class="pitch">A roguelike deckbuilder where enemies march down the lanes toward your castle. Play cards, set traps and let your champion and companions fight on their own, then build a party whose bonds turn a desperate defence into a perfect one.</p>
+    <div class="stores">
+      <span class="store"><small>Coming soon</small><b>Google Play</b></span>
+      <span class="store"><small>Coming soon</small><b>Steam</b></span>
+      <a class="badge" href="https://nimbicstudio.itch.io/gatehold"><img class="itch" src="../img/itchio-badge.svg" alt="Available on itch.io" width="740" height="228"></a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="split" aria-labelledby="wall">
+    <div>
+      <h2 id="wall">Only the wall can fall</h2>
+      <p>Your champion and two companions fight from the battlements on their own. Each one strikes by its own rule: the closest enemy, the weakest, the farthest.</p>
+      <p>You play the cards. Block the hits, set traps where the enemies will walk, aim your Ballista and decide who to Focus.</p>
+      <p class="muted">Every turn shows exactly what the enemies will do next and how much damage reaches the wall, so a lost run is never a mystery.</p>
+    </div>
+    <img class="shot" src="img/pc-battle.jpg" alt="A battle: the party on the left, enemies advancing down the lanes, and a hand of cards" width="1280" height="720" loading="lazy">
+  </section>
+
+  <div class="stats" role="list">
+    <div role="listitem"><b>5</b><span>champions</span></div>
+    <div role="listitem"><b>14</b><span>companions</span></div>
+    <div role="listitem"><b>70</b><span>bonds</span></div>
+    <div role="listitem"><b>7</b><span>regions</span></div>
+    <div role="listitem"><b>160</b><span>cards</span></div>
+    <div role="listitem"><b>40+</b><span>enemies &amp; bosses</span></div>
+  </div>
+
+  <section aria-labelledby="party">
+    <h2 id="party">A party, not just a deck</h2>
+    <p class="muted">Pick a champion and two companions. Each brings their own cards, and every champion shares a unique bond with every companion.</p>
+    <div class="features">
+      <div class="feature">
+        <div class="rule"></div>
+        <h3>Find the trio that clicks</h3>
+        <p>A hunter who marks her prey, a ranger who only shines behind a full wall of Block, a siege captain whose Ballista never stops firing.</p>
+      </div>
+      <div class="feature">
+        <div class="rule"></div>
+        <h3>Every run is a new road</h3>
+        <p>Cross a branching map of fights, elites, shops, campfires, events and treasure. Recruit a third companion at the Tavern and level your party before the boss.</p>
+      </div>
+      <div class="feature">
+        <div class="rule"></div>
+        <h3>Clear numbers, no surprises</h3>
+        <p>Hold any enemy to see what it will do. The end-turn preview shows every hit, every kill and every point of wall damage before you commit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="split" aria-labelledby="regions">
+    <img class="shot" src="img/pc-map.jpg" alt="The run map: a branching road of fights, shops, campfires and events" width="1280" height="720" loading="lazy">
+    <div>
+      <h2 id="regions">Seven regions, one citadel</h2>
+      <p>Each region has its own enemies, its own twist and its own bosses: the dead keep coming in the marsh, armoured columns hold the mountain pass, and the Ashen Wastes set your wall on fire.</p>
+      <ol class="route" aria-label="The regions, in the order you reach them">
+        <li>The Old Road</li>
+        <li>Blightmarsh</li>
+        <li>Iron Pass</li>
+        <li>The Ashen Wastes</li>
+        <li>Frostmere</li>
+        <li>The Drowned Coast</li>
+        <li>The Black Citadel</li>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="phone">
+    <div class="split phone-split">
+      <div>
+        <h2 id="phone">Made for your phone, and for PC</h2>
+        <p>On Android, Gatehold plays in portrait with one thumb. On PC it uses a wide layout with full mouse and keyboard play.</p>
+        <p class="muted">A run saves after every move: close the game mid-fight and pick it up later exactly where you were.</p>
+      </div>
+      <div class="phones">
+        <img class="shot" src="img/phone-battle.jpg" alt="A battle on a phone, in portrait" width="540" height="1080" loading="lazy">
+        <img class="shot" src="img/phone-boss.jpg" alt="Fighting the Ember Drake on a phone" width="540" height="1080" loading="lazy">
+        <img class="shot" src="img/phone-bonds.jpg" alt="A champion's page on a phone, listing their bonds with every companion" width="540" height="1080" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="split" aria-labelledby="pushing">
+    <div>
+      <h2 id="pushing">Keep pushing</h2>
+      <ul class="list">
+        <li><b>Ascension 1&ndash;10</b> for every champion</li>
+        <li><b>Hazards:</b> opt into armoured elites, immovable bosses, splitting enemies or a faster march for extra Renown</li>
+        <li><b>Daily and weekly challenges</b>, the same seed for everyone</li>
+        <li><b>Ranks and talents</b> for your champions, passives for your companions, and permanent upgrades bought with Renown</li>
+        <li><b>Feats</b> that reward odd ways to win</li>
+      </ul>
+    </div>
+    <img class="shot" src="img/pc-run-end.jpg" alt="The end of a run: Ascension unlocked, champion levels and Renown earned" width="1280" height="720" loading="lazy">
+  </section>
+
+  <section aria-labelledby="shots">
+    <h2 id="shots">Screenshots</h2>
+    <div class="gallery">
+      <a href="img/pc-traps.jpg"><img class="shot" src="img/pc-traps.jpg" alt="Spike traps and palisades across the lanes" width="1280" height="720" loading="lazy"></a>
+      <a href="img/pc-boss-ember-drake.jpg"><img class="shot" src="img/pc-boss-ember-drake.jpg" alt="Boss fight: the Ember Drake" width="1280" height="720" loading="lazy"></a>
+      <a href="img/pc-boss-kraken.jpg"><img class="shot" src="img/pc-boss-kraken.jpg" alt="Boss fight: the Kraken" width="1280" height="720" loading="lazy"></a>
+      <a href="img/pc-ashen-elite.jpg"><img class="shot" src="img/pc-ashen-elite.jpg" alt="An elite fight in the Ashen Wastes" width="1280" height="720" loading="lazy"></a>
+      <a href="img/pc-deck.jpg"><img class="shot" src="img/pc-deck.jpg" alt="Your deck and party during a run" width="1280" height="720" loading="lazy"></a>
+      <a href="img/pc-quests.jpg"><img class="shot" src="img/pc-quests.jpg" alt="Daily and weekly challenges" width="1280" height="720" loading="lazy"></a>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>Coming soon</h2>
+    <p class="muted">Gatehold is coming to Android and to Steam on PC. On Steam there are no ads and no microtransactions. Until then, a free playtest for Windows and Android is on itch.io.</p>
+    <div class="stores">
+      <span class="store"><small>Coming soon</small><b>Google Play</b></span>
+      <span class="store"><small>Coming soon</small><b>Steam</b></span>
+      <a class="badge" href="https://nimbicstudio.itch.io/gatehold"><img class="itch" src="../img/itchio-badge.svg" alt="Available on itch.io" width="740" height="228"></a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 <a href="../">Nimbic</a> &middot; <a href="privacy/">Privacy policy</a> &middot; <a href="mailto:nimbic.studio@proton.me">nimbic.studio@proton.me</a></p>
+    <p>Game icons from <a href="https://game-icons.net/">game-icons.net</a> (CC BY 3.0).</p>
+  </div>
+</footer>
+
+<script src="../assets/viewer.js"></script>
+
+</body>
+</html>

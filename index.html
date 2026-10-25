@@ -92,6 +92,8 @@
   .app + .app { margin-top: 20px; }
   .app img { width: 96px; height: 96px; border-radius: 22px; display: block; }
   .app h3 { margin: 0 0 4px; font-size: 1.5rem; letter-spacing: -.01em; }
+  .app h3 a { text-decoration: none; }
+  .app h3 a:hover { text-decoration: underline; }
   .app .tagline { margin: 0 0 16px; color: var(--c-muted); }
   .app ul { margin: 0 0 20px; padding: 0; list-style: none; display: grid; gap: 8px; }
   .app li { padding-left: 22px; position: relative; }
@@ -103,6 +105,10 @@
     font-weight: 600; text-decoration: none; font-size: .95rem;
   }
   .pill.soon { background: transparent; color: var(--c-brand); border: 1.5px dashed currentColor; }
+  /* Official store badges, unmodified; Google's PNG has transparent padding built in, so it's set taller */
+  .badge { display: inline-block; line-height: 0; }
+  .badge .gp { height: 54px; width: auto; margin: -8px 0; }
+  .badge .itch { height: 38px; width: auto; }
 
   /* LEvents: charcoal, off-white, lime pin (lime gets a charcoal outline on light) */
   .app.levents { --c-bg: #FFFFFF; --c-line: #E4E4E0; --c-text: #1F1F1F; --c-muted: #5E5E5B; --c-brand: #1F1F1F; --c-dot: #D7FF4D; --c-dot-ring: #1F1F1F; }
@@ -162,7 +168,7 @@
       <article class="app levents">
         <img src="img/levents-icon.png" alt="LEvents app icon">
         <div>
-          <h3>LEvents</h3>
+          <h3><a href="levents/">LEvents</a></h3>
           <p class="tagline">Everything happening in Leskovac, in one place.</p>
           <ul>
             <li>Concerts, exhibitions, plays, sports, workshops, films and fairs</li>
@@ -171,7 +177,8 @@
             <li>In Serbian and English, with light and dark themes</li>
           </ul>
           <div class="actions">
-            <span class="pill soon">Coming soon to Google Play</span>
+            <a class="badge" href="https://play.google.com/store/apps/details?id=rs.levents.app"><img class="gp" src="img/google-play-badge.png" alt="Get it on Google Play" width="646" height="250"></a>
+            <a href="levents/">About the app</a>
             <a href="levents/privacy/">Privacy policy</a>
           </div>
         </div>
@@ -179,7 +186,7 @@
       <article class="app isplata">
         <img src="img/isplata-icon.png" alt="Isplata app icon">
         <div>
-          <h3>Isplata</h3>
+          <h3><a href="isplata/">Isplata</a></h3>
           <p class="tagline">Serbian salary and tax calculators in one app.</p>
           <ul>
             <li>Net and gross salary, flat-rate (paušal) tax, author's fees, dividends and entrepreneur profit tax</li>
@@ -189,6 +196,7 @@
           </ul>
           <div class="actions">
             <span class="pill soon">Coming soon to Google Play</span>
+            <a href="isplata/">About the app</a>
             <a href="isplata/privacy/">Privacy policy</a>
           </div>
         </div>
@@ -201,7 +209,7 @@
       <article class="app slovca">
         <img src="img/slovca-icon.png" alt="Slovca app icon">
         <div>
-          <h3>Slovca</h3>
+          <h3><a href="slovca/">Slovca</a></h3>
           <p class="tagline">A daily word puzzle in Serbian.</p>
           <ul>
             <li>Guess the hidden word in six tries - the same daily word for everyone</li>
@@ -211,6 +219,7 @@
           </ul>
           <div class="actions">
             <span class="pill soon">Coming soon to Google Play</span>
+            <a href="slovca/">About the game</a>
             <a href="slovca/privacy/">Privacy policy</a>
           </div>
         </div>
@@ -218,16 +227,18 @@
       <article class="app gatehold">
         <img src="img/gatehold-icon.png" alt="Gatehold game icon">
         <div>
-          <h3>Gatehold</h3>
+          <h3><a href="gatehold/">Gatehold</a></h3>
           <p class="tagline">Hold the wall. A roguelike deckbuilder for phone and PC.</p>
           <ul>
             <li>Enemies march down the lanes toward your castle - play cards, set traps and aim the Ballista</li>
-            <li>Pick a champion and two companions, with 30 unique bonds between them</li>
-            <li>5 regions, 110 cards, a branching map every run, and a daily challenge</li>
+            <li>Pick a champion and two companions - every champion has a unique bond with every companion</li>
+            <li>7 regions, 160 cards, a branching map every run, and daily and weekly challenges</li>
             <li>See every hit before you end your turn, and pick up a run exactly where you left it</li>
           </ul>
           <div class="actions">
             <span class="pill soon">Coming soon to Google Play and Steam</span>
+            <a class="badge" href="https://nimbicstudio.itch.io/gatehold"><img class="itch" src="img/itchio-badge.svg" alt="Available on itch.io" width="740" height="228"></a>
+            <a href="gatehold/">About the game</a>
             <a href="gatehold/privacy/">Privacy policy</a>
           </div>
         </div>
@@ -262,6 +273,7 @@
   <div class="wrap">
     <span>&copy; 2026 Nimbic</span>
     <span><a href="levents/privacy/">LEvents privacy policy</a> &middot; <a href="isplata/privacy/">Isplata privacy policy</a> &middot; <a href="slovca/privacy/">Slovca privacy policy</a> &middot; <a href="gatehold/privacy/">Gatehold privacy policy</a> &middot; <a href="brimfolk/privacy/">Brimfolk privacy policy</a></span>
+    <span>Google Play and the Google Play logo are trademarks of Google LLC.</span>
   </div>
 </footer>
 

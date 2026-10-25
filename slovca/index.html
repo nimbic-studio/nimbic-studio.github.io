@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slovca - A daily word puzzle in Serbian</title>
+<meta name="description" content="Slovca is a word game in Serbian: one five-letter word a day, the same for everyone, and six tries to guess it. Six ways to play, streaks, Latin or Cyrillic. Coming soon to Google Play.">
+<link rel="icon" type="image/png" href="../img/slovca-icon.png">
+<link rel="apple-touch-icon" href="../img/slovca-icon.png">
+<meta property="og:title" content="Slovca - A daily word puzzle in Serbian">
+<meta property="og:description" content="One word a day, the same for everyone. Six tries, six ways to play, Latin or Cyrillic. Coming soon to Google Play.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nimbic-studio.github.io/slovca/">
+<meta property="og:image" content="https://nimbic-studio.github.io/slovca/img/feature.jpg">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/product.css">
+<style>
+  /* Slovca palettes (Slovca/Branding/README.md): Paprika when the phone is light, Dunav when it's dark - like the game. */
+  :root {
+    color-scheme: light dark;
+    --bg: #FFF3E2;
+    --surface: #FFFFFF;
+    --raised: #F3E3CF;
+    --line: #E9D9C6;
+    --text: #2A1E17;
+    --muted: #6F5F53;
+    --accent: #C8412B;
+    --accent-ink: #FFFFFF;
+    --heading: #C8412B;
+    --right: #2F8F5B;
+    --wrong: #F0B43C;
+    --none: #8C7B6E;
+    --display: Unbounded, "Segoe UI", -apple-system, Roboto, Arial, sans-serif;
+    --body: Onest, "Segoe UI", -apple-system, Roboto, Arial, sans-serif;
+    --shadow: 0 1px 2px rgba(42,30,23,.06), 0 12px 32px rgba(42,30,23,.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0E2A3A;
+      --surface: #133647;
+      --raised: #1E4557;
+      --line: #1F4557;
+      --text: #F4F1EA;
+      --muted: #9FB6C2;
+      --accent: #FFB547;
+      --accent-ink: #2A1E17;
+      --heading: #FFB547;
+      --right: #138F86;
+      --wrong: #FFB547;
+      --none: #2E4A5A;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.35);
+    }
+  }
+  h1, h2, h3 { letter-spacing: -.01em; }
+  h2 { font-size: clamp(1.4rem, 3.6vw, 1.9rem); }
+  h3 { font-size: 1rem; }
+  .app-hero h1 { font-size: clamp(2.2rem, 6.5vw, 3.2rem); }
+
+  /* Letter tiles, as in the game: right spot, wrong spot, not in the word */
+  .tiles { display: flex; gap: 6px; margin: 0; }
+  .tile {
+    width: 46px; height: 46px; border-radius: 8px; display: grid; place-items: center;
+    font: 700 1.35rem/1 Onest, sans-serif; color: #fff; background: var(--none);
+  }
+  .tile.r { background: var(--right); }
+  .tile.w { background: var(--wrong); color: #2A1E17; }
+  .legend { display: grid; gap: 16px; margin-top: 22px; }
+  .legend div { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; }
+  .legend .tile { width: 40px; height: 40px; font-size: 1.15rem; }
+  .legend p { margin: 0; }
+  .example { margin-top: 26px; }
+  .example .tiles { flex-wrap: wrap; }
+  .feature .rule { background: var(--wrong); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a href="../"><picture><source srcset="../brand/nimbic-logo-dark.svg" media="(prefers-color-scheme: dark)"><img src="../brand/nimbic-logo.svg" alt="Nimbic" width="113" height="26"></picture><span>&larr; All apps and games</span></a>
+  </div>
+</div>
+
+<main>
+  <header class="app-hero">
+    <div class="wrap grid">
+      <div>
+        <img class="icon" src="../img/slovca-icon.png" alt="" width="88" height="88">
+        <h1>Slovca</h1>
+        <p class="tag">A daily word puzzle in Serbian.</p>
+        <p class="pitch">One word a day, the same for everyone, and six tries to guess it. Keep your streak going, play five other ways, and learn what each word means.</p>
+        <div class="stores">
+          <span class="store"><small>Coming soon</small><b>Google Play</b></span>
+        </div>
+      </div>
+      <img class="shot lead" src="img/phone-1.jpg" alt="One word, every day: six tries to guess the daily Serbian word" width="540" height="960">
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="split" aria-labelledby="how">
+      <div>
+        <h2 id="how">How to play</h2>
+        <p>Type a five-letter word and the colours show how close you are.</p>
+        <div class="legend">
+          <div><span class="tile r">K</span><p><b>Green:</b> the letter is in the right spot.</p></div>
+          <div><span class="tile w">R</span><p><b>Yellow:</b> the letter is in the word, but in another spot.</p></div>
+          <div><span class="tile">T</span><p><b>Grey:</b> the letter isn't in the word.</p></div>
+        </div>
+      </div>
+      <div class="example" aria-hidden="true">
+        <div class="tiles"><span class="tile">P</span><span class="tile w">A</span><span class="tile">T</span><span class="tile w">K</span><span class="tile r">A</span></div>
+        <div class="tiles" style="margin-top:6px"><span class="tile r">K</span><span class="tile w">A</span><span class="tile w">R</span><span class="tile">T</span><span class="tile r">A</span></div>
+        <div class="tiles" style="margin-top:6px"><span class="tile r">K</span><span class="tile r">R</span><span class="tile r">A</span><span class="tile r">V</span><span class="tile r">A</span></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="modes">
+      <h2 id="modes">Six ways to play</h2>
+      <div class="features">
+        <div class="feature"><div class="rule"></div><h3>Daily word</h3><p>One word a day, the same for everyone. Compare results with friends.</p></div>
+        <div class="feature"><div class="rule"></div><h3>Endless</h3><p>A new word whenever you like.</p></div>
+        <div class="feature"><div class="rule"></div><h3>4 letters and 6 letters</h3><p>Shorter and longer words, for a change of pace.</p></div>
+        <div class="feature"><div class="rule"></div><h3>Duo</h3><p>Two words at once, with one set of guesses.</p></div>
+        <div class="feature"><div class="rule"></div><h3>Blitz</h3><p>How many words can you guess in three minutes?</p></div>
+        <div class="feature"><div class="rule"></div><h3>Hard mode</h3><p>For experienced players: every hint you've found must be used in your next guesses.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="inside">
+      <h2 id="inside">A look inside</h2>
+      <div class="screens" style="--screens: 7">
+        <img class="shot" src="img/phone-2.jpg" alt="Keep your streak: shields save it when you miss a day" width="540" height="960" loading="lazy">
+        <img class="shot" src="img/phone-3.jpg" alt="Six ways to play" width="540" height="960" loading="lazy">
+        <img class="shot" src="img/phone-4.jpg" alt="Duo: two words at once" width="540" height="960" loading="lazy">
+        <img class="shot" src="img/phone-5.jpg" alt="Blitz: beat the clock" width="540" height="960" loading="lazy">
+        <img class="shot" src="img/phone-6.jpg" alt="Learn what each word means" width="540" height="960" loading="lazy">
+        <img class="shot" src="img/phone-7.jpg" alt="Play in Latin or Cyrillic" width="540" height="960" loading="lazy">
+        <img class="shot" src="img/phone-8.jpg" alt="Light or dark theme, plus a colour-blind mode" width="540" height="960" loading="lazy">
+      </div>
+    </section>
+
+    <section aria-labelledby="streak">
+      <h2 id="streak">Keep your streak, play your way</h2>
+      <ul class="list">
+        <li><b>Streaks with shields:</b> every seven days you earn a shield that saves your streak when you miss a day. The calendar shows every day you've played, and you can catch up on missed words.</li>
+        <li><b>Learn something new:</b> after every game you see what the word means.</li>
+        <li><b>Latin or Cyrillic:</b> the keyboard and the board follow your choice.</li>
+        <li><b>Light or dark theme</b>, and a colour-blind mode.</li>
+        <li><b>No sign-up, no account.</b> Your progress stays on your phone. Sign in to Google Play Games if you'd like achievements and leaderboards.</li>
+        <li><b>Free.</b> Optional rewarded ads, for example for a hint or to play a missed day.</li>
+      </ul>
+      <div class="note"><p>Found an odd word? Report it from the game: the word list keeps growing. The game itself is in Serbian.</p></div>
+    </section>
+
+    <div class="cta">
+      <h2>Coming soon</h2>
+      <p class="muted">Slovca is coming to Android on Google Play.</p>
+      <div class="stores">
+        <span class="store"><small>Coming soon</small><b>Google Play</b></span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 <a href="../">Nimbic</a> &middot; <a href="privacy/">Privacy policy</a> &middot; <a href="mailto:nimbic.studio@proton.me">nimbic.studio@proton.me</a></p>
+  </div>
+</footer>
+
+<script src="../assets/viewer.js"></script>
+</body>
+</html>

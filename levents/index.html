@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEvents - Everything happening in Leskovac</title>
+<meta name="description" content="LEvents is your guide to events in Leskovac: concerts, exhibitions, theatre, sports, workshops, films and fairs in one place. No account, no sign-up. Free on Google Play.">
+<link rel="icon" type="image/png" href="../img/levents-icon.png">
+<link rel="apple-touch-icon" href="../img/levents-icon.png">
+<meta property="og:title" content="LEvents - Everything happening in Leskovac">
+<meta property="og:description" content="Concerts, exhibitions, theatre and sports in Leskovac, in one place. Free on Google Play.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nimbic-studio.github.io/levents/">
+<meta property="og:image" content="https://nimbic-studio.github.io/levents/img/feature.jpg">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/product.css">
+<style>
+  /* LEvents brand (LEvents/brand/README.md): charcoal, off-white, lime pin. Lime on light always gets a charcoal edge. */
+  :root {
+    color-scheme: light dark;
+    --bg: #F7F7F5;
+    --surface: #FFFFFF;
+    --raised: #EFEFEA;
+    --line: #E4E4E0;
+    --text: #1F1F1F;
+    --muted: #5E5E5B;
+    --accent: #1F1F1F;
+    --accent-ink: #F7F7F5;
+    --heading: #1F1F1F;
+    --lime: #D7FF4D;
+    --lime-edge: #1F1F1F;
+    --display: "Plus Jakarta Sans", "Segoe UI", -apple-system, Roboto, Arial, sans-serif;
+    --body: "Plus Jakarta Sans", "Segoe UI", -apple-system, Roboto, Arial, sans-serif;
+    --shadow: 0 1px 2px rgba(0,0,0,.05), 0 12px 32px rgba(0,0,0,.10);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161616;
+      --surface: #1F1F1F;
+      --raised: #262626;
+      --line: #2E2E2E;
+      --text: #F7F7F5;
+      --muted: #A3A39E;
+      --accent: #D7FF4D;
+      --accent-ink: #1F1F1F;
+      --heading: #F7F7F5;
+      --lime-edge: transparent;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.4);
+    }
+  }
+  body { font-size: 1.05rem; }
+  h1, h2 { letter-spacing: -.02em; font-weight: 800; }
+  .app-hero h1 { font-style: italic; font-weight: 300; letter-spacing: -.01em; }
+  .app-hero h1 b { font-weight: 800; }
+  /* "Leskovac" gets a lime highlighter stroke */
+  .mark { background: linear-gradient(transparent 58%, var(--lime) 58%, var(--lime) 92%, transparent 92%); padding: 0 .1em; color: var(--text); }
+  @media (prefers-color-scheme: dark) { .mark { background: none; color: var(--lime); padding: 0; } }
+  .list li::before, .feature .rule { background: var(--lime); box-shadow: 0 0 0 1.5px var(--lime-edge); }
+  .feature .rule { height: 4px; }
+  .note a { color: var(--text); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a href="../"><picture><source srcset="../brand/nimbic-logo-dark.svg" media="(prefers-color-scheme: dark)"><img src="../brand/nimbic-logo.svg" alt="Nimbic" width="113" height="26"></picture><span>&larr; All apps and games</span></a>
+  </div>
+</div>
+
+<main>
+  <header class="app-hero">
+    <div class="wrap grid">
+      <div>
+        <img class="icon" src="../img/levents-icon.png" alt="" width="88" height="88">
+        <h1><b>L</b>Events</h1>
+        <p class="tag">Everything happening in <span class="mark">Leskovac</span>, in one place.</p>
+        <p class="pitch">Concerts, exhibitions, theatre, sports, workshops, films and fairs. See what's on today, this weekend or in the days ahead, without digging through social media.</p>
+        <div class="stores">
+          <a class="badge" href="https://play.google.com/store/apps/details?id=rs.levents.app"><img class="gp" src="../img/google-play-badge.png" alt="Get it on Google Play" width="646" height="250"></a>
+        </div>
+      </div>
+      <img class="shot lead" src="img/1-today.jpg" alt="Every event in Leskovac in one place: today's events with a day picker" width="540" height="960">
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section aria-labelledby="inside">
+      <h2 id="inside">A look inside</h2>
+      <div class="screens" style="--screens: 5">
+        <img class="shot" src="img/2-details.jpg" alt="Event details: date, time and place at a glance" width="540" height="960" loading="lazy">
+        <img class="shot" src="img/3-filters.jpg" alt="Filter by the categories you love" width="540" height="960" loading="lazy">
+        <img class="shot" src="img/4-search.jpg" alt="Find any event in seconds with search" width="540" height="960" loading="lazy">
+        <img class="shot" src="img/5-saved.jpg" alt="Save the events you care about" width="540" height="960" loading="lazy">
+        <img class="shot" src="img/6-themes.jpg" alt="Light or dark theme, your choice" width="540" height="960" loading="lazy">
+      </div>
+    </section>
+
+    <section aria-labelledby="what">
+      <h2 id="what">What you can do</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="rule"></div>
+          <h3>Pick a day</h3>
+          <p>Events for today, any of the next 13 days, or every upcoming event at once, with featured events at the top.</p>
+        </div>
+        <div class="feature">
+          <div class="rule"></div>
+          <h3>Filter and search</h3>
+          <p>Concerts, exhibitions, theatre, sports, workshops, films and fairs. Combine several categories, or search by name.</p>
+        </div>
+        <div class="feature">
+          <div class="rule"></div>
+          <h3>All the details</h3>
+          <p>Date, time, venue, a description and a link for more, plus what else is happening at the same venue.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="split" aria-labelledby="yours">
+      <div>
+        <h2 id="yours">Made to be simple</h2>
+        <ul class="list">
+          <li><b>No account, no sign-up:</b> open the app and start browsing.</li>
+          <li><b>Save the events you don't want to miss.</b> They're kept on your phone, and past ones stay visible, marked as finished.</li>
+          <li><b>Serbian or English</b>, in a light or dark theme.</li>
+          <li><b>Free</b>, with banner ads.</li>
+        </ul>
+        <div class="note">
+          <p>Events are added by hand. Organising something in Leskovac and want it in the app? Write to <a href="mailto:nimbic.studio@proton.me">nimbic.studio@proton.me</a>.</p>
+        </div>
+      </div>
+      <img class="shot" src="img/feature.jpg" alt="LEvents: concerts, exhibitions, theatre and sports in Leskovac" width="1024" height="500" loading="lazy">
+    </section>
+
+    <div class="cta">
+      <h2>Get LEvents</h2>
+      <p class="muted">LEvents is free on Google Play, for Android 7.0 and newer.</p>
+      <div class="stores">
+        <a class="badge" href="https://play.google.com/store/apps/details?id=rs.levents.app"><img class="gp" src="../img/google-play-badge.png" alt="Get it on Google Play" width="646" height="250"></a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 <a href="../">Nimbic</a> &middot; <a href="privacy/">Privacy policy</a> &middot; <a href="mailto:nimbic.studio@proton.me">nimbic.studio@proton.me</a></p>
+    <p>Google Play and the Google Play logo are trademarks of Google LLC.</p>
+  </div>
+</footer>
+
+<script src="../assets/viewer.js"></script>
+</body>
+</html>
